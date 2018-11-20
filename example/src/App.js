@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 
-import ExampleComponent from 'react-bezier-mask'
+import ReactBezierMask from 'react-bezier-mask'
 
 export default class App extends Component {
   render () {
     return (
       <div>
-        <ExampleComponent text='Modern React component module' />
+        <ReactBezierMask>
+          <img src="https://picsum.photos/300/?random" width="300" height="300" alt="placeholder"/>
+        </ReactBezierMask>
       </div>
     )
   }

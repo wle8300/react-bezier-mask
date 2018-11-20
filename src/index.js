@@ -1,21 +1,31 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import styles from './styles.css'
+import BezierSquare from './bezier-square.svg'
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
+export default class ReactBezierMask extends Component {
+
+  static props = {
+    style: PropTypes.object,
+    children: PropTypes.node.isRequired
   }
 
   render() {
-    const {
-      text
-    } = this.props
+
+    const style = Object.assign(
+      {},
+      {
+        display: 'inline-flex',
+        overflow: 'hidden',
+        WebkitMask: `url(${BezierSquare}) 0% 0% / contain no-repeat`,
+        mask: `url(${BezierSquare}) 0% 0% / contain no-repeat`,
+      },
+      this.props.style
+    )
 
     return (
-      <div className={styles.test}>
-        Example Component: {text}
+      <div style={style}>
+        {this.props.children}
       </div>
     )
   }
